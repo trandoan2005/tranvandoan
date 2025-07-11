@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/login_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="24dp"
     android:gravity="center"
-    android:background="@color/login_bg">
+    android:background="#F5F5F5">
 
-    <!-- Hình ảnh logo -->
-    <ImageView
+    <!-- Tiêu đề -->
+    <TextView
         android:id="@+id/login_logo"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginBottom="32dp"
-        android:src="@drawable/mit1" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="VUI LÒNG ĐĂNG NHẬP"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#3F51B5"
+        android:layout_marginBottom="32dp" />
 
     <!-- Tên đăng nhập -->
     <EditText
@@ -24,6 +26,9 @@
         android:layout_height="wrap_content"
         android:hint="Tên đăng nhập"
         android:inputType="textPersonName"
+        android:textSize="16sp"
+        android:padding="12dp"
+        android:background="@android:drawable/edit_text"
         android:layout_marginBottom="16dp" />
 
     <!-- Mật khẩu -->
@@ -33,6 +38,9 @@
         android:layout_height="wrap_content"
         android:hint="Mật khẩu"
         android:inputType="textPassword"
+        android:textSize="16sp"
+        android:padding="12dp"
+        android:background="@android:drawable/edit_text"
         android:layout_marginBottom="8dp" />
 
     <!-- Ghi nhớ mật khẩu -->
@@ -41,15 +49,48 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ghi nhớ mật khẩu"
+        android:textSize="14sp"
         android:layout_marginBottom="16dp" />
 
-    <!-- Nút đăng nhập -->
+    <!-- Nút đăng nhập chính -->
     <Button
         android:id="@+id/login_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/login"
         android:text="Đăng nhập"
+        android:textSize="16sp"
+        android:backgroundTint="#3F51B5"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Hoặc -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="hoặc"
+        android:textColor="#888888"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Đăng nhập bằng Google -->
+    <Button
+        android:id="@+id/btn_google_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Đăng nhập bằng Google"
+        android:drawableLeft="@android:drawable/ic_menu_share"
+        android:backgroundTint="#DB4437"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Đăng nhập bằng số điện thoại -->
+    <Button
+        android:id="@+id/btn_phone_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Đăng nhập bằng Số điện thoại"
+        android:drawableLeft="@android:drawable/ic_menu_call"
+        android:backgroundTint="#4CAF50"
+        android:textColor="#FFFFFF"
         android:layout_marginBottom="16dp" />
 
     <!-- TextView đăng ký -->
@@ -58,7 +99,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Chưa có tài khoản? Đăng ký"
-        android:textColor="#FF9800"
+        android:textColor="#FF5722"
         android:textStyle="bold"
         android:textSize="14sp"
         android:layout_marginTop="8dp"

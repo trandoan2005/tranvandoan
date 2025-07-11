@@ -10,7 +10,16 @@
     android:background="#E0F2F1"
     tools:context=".HomeActivity">
 
-    <!-- Search bar -->
+    <!-- ✅ Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:title="Trang Chủ"
+        android:titleTextColor="@android:color/white" />
+
+    <!-- 🔍 Tìm kiếm -->
     <androidx.appcompat.widget.SearchView
         android:id="@+id/search_bar"
         android:layout_width="match_parent"
@@ -19,7 +28,7 @@
         android:iconifiedByDefault="false"
         android:layout_marginBottom="16dp" />
 
-    <!-- Banner ảnh -->
+    <!-- 🖼 Banner -->
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
@@ -36,7 +45,7 @@
         android:background="#B2DFDB"
         android:layout_marginBottom="16dp" />
 
-    <!-- Danh sách sản phẩm -->
+    <!-- 📦 Danh sách sản phẩm -->
     <ListView
         android:id="@+id/mobile_list"
         android:layout_width="match_parent"
@@ -45,7 +54,7 @@
         android:divider="#B2DFDB"
         android:dividerHeight="1dp" />
 
-    <!-- Nút Giỏ hàng nổi bật -->
+    <!-- 🛒 Nút Giỏ hàng -->
     <Button
         android:id="@+id/cart_button"
         android:layout_width="wrap_content"
