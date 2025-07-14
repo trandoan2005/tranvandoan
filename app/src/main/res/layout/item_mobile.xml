@@ -55,7 +55,16 @@
             android:textSize="13sp"
             android:layout_marginTop="4dp" />
 
-        <!-- ❌ Nút Thêm vào giỏ: xóa hoặc thay bằng “Xem chi tiết” -->
+        <!-- TextView mới để hiển thị giá -->
+        <TextView
+            android:id="@+id/price_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0₫"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:layout_marginTop="4dp" />
+
         <Button
             android:id="@+id/btn_view_detail"
             android:layout_width="wrap_content"

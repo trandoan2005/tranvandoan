@@ -49,7 +49,8 @@ public class MobileAdapter extends BaseAdapter {
         TextView descText = convertView.findViewById(R.id.desc_text);
         TextView extraText = convertView.findViewById(R.id.extra_text);
         TextView categoryText = convertView.findViewById(R.id.category_text);
-        Button viewDetailButton = convertView.findViewById(R.id.btn_view_detail); // Nút "Xem chi tiết"
+        TextView priceText = convertView.findViewById(R.id.price_text); // Lấy TextView giá
+        Button viewDetailButton = convertView.findViewById(R.id.btn_view_detail);
 
         // Gán dữ liệu cho View
         imageView.setImageResource(item.getImageResId());
@@ -57,15 +58,17 @@ public class MobileAdapter extends BaseAdapter {
         descText.setText(item.getDescription());
         extraText.setText(item.getExtraInfo());
         categoryText.setText(item.getCategory());
+        priceText.setText(String.format("%,.0f₫", item.getPrice()));  // Hiển thị giá format dạng 28,000₫
 
         // Xử lý sự kiện nút "Xem chi tiết"
         viewDetailButton.setOnClickListener(v -> {
-            Intent intent = new Intent(context, activity_product_detail.class); // ✅ dùng đúng class
+            Intent intent = new Intent(context, activity_product_detail.class);
             intent.putExtra("name", item.getName());
             intent.putExtra("description", item.getDescription());
             intent.putExtra("extraInfo", item.getExtraInfo());
             intent.putExtra("category", item.getCategory());
             intent.putExtra("imageResId", item.getImageResId());
+            intent.putExtra("price", item.getPrice());  // Truyền giá qua intent
             context.startActivity(intent);
         });
 

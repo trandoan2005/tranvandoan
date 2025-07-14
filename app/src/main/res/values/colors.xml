@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Màu cơ bản -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="login_bg">#E3F2FD</color>
-    <color name="login">#B2DFDB</color>
+
+    <!-- Màu nền trang đăng nhập -->
+    <color name="login_bg">#E3F2FD</color> <!-- Xanh lam nhạt -->
+    <color name="login">#B2DFDB</color>     <!-- Xanh ngọc -->
+
+    <!-- 🎨 Màu chủ đạo mới -->
+    <color name="green_light">#F1F8E9</color>  <!-- Nền chính của trang Home -->
+    <color name="green_line">#B2DFDB</color>   <!-- Viền phân cách ListView -->
+    <color name="teal_700">#00796B</color>     <!-- Màu đậm (dùng cho icon/text nổi bật) -->
+    <color name="teal_200">#80CBC4</color>     <!-- Màu trung gian -->
+    <color name="search_bg">#FFFFFF</color>    <!-- Nền SearchView -->
 </resources>

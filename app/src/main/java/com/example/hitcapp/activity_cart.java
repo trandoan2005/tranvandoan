@@ -1,5 +1,6 @@
 package com.example.hitcapp;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
@@ -23,6 +24,7 @@ public class activity_cart extends AppCompatActivity {
     private ListView cartListView;
     private ArrayList<MobileItem> cartItems;
     private MobileAdapter adapter;
+    private Button checkoutBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,41 +32,33 @@ public class activity_cart extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_cart);
 
-        // Áp dụng padding cho layout chính nếu có thanh điều hướng
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        // Ánh xạ ListView
         cartListView = findViewById(R.id.cart_list);
+        checkoutBtn = findViewById(R.id.btn_checkout);
 
-        // Load dữ liệu từ SharedPreferences
         loadCartItems();
 
-        // Gán adapter
         adapter = new MobileAdapter(this, cartItems);
         cartListView.setAdapter(adapter);
 
-        // ✅ Xử lý nút Thanh toán
-        Button checkoutBtn = findViewById(R.id.btn_checkout);
+        updateCheckoutButtonState();
+
         checkoutBtn.setOnClickListener(v -> {
             if (cartItems.isEmpty()) {
                 Toast.makeText(this, "Giỏ hàng đang trống", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            // Xóa dữ liệu giỏ hàng khỏi SharedPreferences
-            SharedPreferences sharedPreferences = getSharedPreferences("Cart", MODE_PRIVATE);
-            sharedPreferences.edit().remove("cart_items").apply();
+            int totalPrice = calculateTotalPrice();
 
-            // Xóa danh sách hiện tại
-            cartItems.clear();
-            adapter.notifyDataSetChanged();
-
-            // Thông báo
-            Toast.makeText(this, "Thanh toán thành công! Giỏ hàng đã được xóa.", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(activity_cart.this, activity_checkout.class);
+            intent.putExtra("total_price", totalPrice);
+            startActivity(intent);
         });
     }
 
@@ -79,5 +73,17 @@ public class activity_cart extends AppCompatActivity {
         if (cartItems == null) {
             cartItems = new ArrayList<>();
         }
+    }
+
+    private int calculateTotalPrice() {
+        int total = 0;
+        for (MobileItem item : cartItems) {
+            total += item.getPrice();
+        }
+        return total;
+    }
+
+    private void updateCheckoutButtonState() {
+        checkoutBtn.setEnabled(!cartItems.isEmpty());
     }
 }

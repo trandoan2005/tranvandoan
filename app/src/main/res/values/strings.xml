@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">HITCApp</string>
+    <string name="banner_description">Banner sản phẩm</string>
+    <string name="search_hint">Tìm kiếm sản phẩm...</string>
+    <string name="cart_button">Giỏ hàng</string>
+    <string name="bottom_nav_home">Trang chủ</string>
+    <string name="bottom_nav_cart">Giỏ hàng</string>
+    <string name="bottom_nav_profile">Tài khoản</string>
 </resources>
+
